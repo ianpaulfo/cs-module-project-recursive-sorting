@@ -1,6 +1,22 @@
+def binary_search(arr, target, start, end):
+    # Your code here
+  if len(arr) == 0:
+      return -1
+  if len(arr) == 1 and arr[0] != target:
+      return -1
+  else: 
+      middle = (start+end)//2
+      if arr[middle] == target:
+          return middle
+      elif arr[middle] < target:
+          return binary_search(arr[middle:], target, middle, end)
+      elif arr[middle] > target:
+         return binary_search(arr[:middle], target, start, middle)
+
+
 import unittest
 import random
-from searching import *
+# from searching import *
 
 class RecursiveSortingTests(unittest.TestCase):
     def test_binary_search(self):
